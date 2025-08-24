@@ -38,3 +38,53 @@ Voting and Survey application
 - UI/UX
   - Use angular framework
     - Chart.js or D3.js etc...
+
+## Screen transition diagram
+```mermaid
+graph LR
+
+    classDef default fill: #fff, color: #0033ff,  stroke: #ffaa00, stroke-width: 1px;
+    style Survey fill: #fff, color: #0033ff, stroke: #ffaa00 stroke-width
+    style Vote fill: #fff, color: #0033ff, stroke: #ffaa00, stroke-width
+    style funcC fill: #fff, stroke: #ffaa00, stroke-width
+    style funcD fill: #fff, stroke: #ffaa00, stroke-width
+    style header fill: #fff, color: #0033ff, stroke: #ffaa00, stroke-width
+
+    subgraph header [header]
+        Home
+        Logout
+    end
+
+    Login --> Authentication[<font color="#ff00ff">Authentication</font>]--> Menu
+    Menu --> SurveyList
+    Menu --> VotingList
+    linkStyle 0,1,2 stroke: #ffaa00
+
+    subgraph Survey [Survey]
+        SurveyList --> CreateSurvey
+        SurveyList --> SurveyDetail
+        SurveyDetail --> EditSurvey
+        CreateSurvey --> SurveyDetail
+        SurveyDetail --> SurveyList
+        EditSurvey --> SurveyDetail
+        linkStyle 0,1,2,3,4,5 stroke: #ffaa00
+    end
+
+    subgraph Vote [Voting]
+        VotingList --> Voting
+
+        linkStyle 0 stroke: #ffaa00
+    
+    end
+
+
+
+
+
+
+
+
+
+```
+    
+
